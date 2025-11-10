@@ -5,47 +5,103 @@ import HashVisualization from "@/components/HashVisualization";
 import AccountLookup from "@/components/AccountLookup";
 import { toast } from "sonner";
 
-// Sample customer database
+// Sample customer database with comprehensive details
 const customerDatabase: { [key: string]: any } = {
   "ACC-1001": {
     accountNumber: "ACC-1001",
-    name: "John Anderson",
-    email: "john.anderson@email.com",
-    phone: "+1 (555) 123-4567",
-    address: "123 Oak Street, New York, NY 10001",
-    balance: "$45,230.50"
+    name: "Kishore Kumar",
+    email: "kishore.kumar@email.com",
+    phone: "1234567890",
+    address: "123 MG Road, Bangalore, Karnataka 560001",
+    balance: "$45,230.50",
+    accountType: "Savings",
+    branch: "Bangalore Main Branch",
+    ifsc: "BANK0001234",
+    openDate: "15-Jan-2020"
   },
   "ACC-1002": {
     accountNumber: "ACC-1002",
-    name: "Sarah Martinez",
-    email: "sarah.martinez@email.com",
-    phone: "+1 (555) 234-5678",
-    address: "456 Pine Avenue, Los Angeles, CA 90001",
-    balance: "$78,450.00"
+    name: "Priya Sharma",
+    email: "priya.sharma@email.com",
+    phone: "9876543210",
+    address: "456 Nehru Place, New Delhi 110019",
+    balance: "$78,450.00",
+    accountType: "Current",
+    branch: "Delhi Central Branch",
+    ifsc: "BANK0005678",
+    openDate: "22-Mar-2019"
   },
   "ACC-1003": {
     accountNumber: "ACC-1003",
-    name: "Michael Chen",
-    email: "michael.chen@email.com",
-    phone: "+1 (555) 345-6789",
-    address: "789 Maple Drive, Chicago, IL 60601",
-    balance: "$32,890.25"
+    name: "Rajesh Patel",
+    email: "rajesh.patel@email.com",
+    phone: "8765432109",
+    address: "789 CG Road, Ahmedabad, Gujarat 380009",
+    balance: "$32,890.25",
+    accountType: "Savings",
+    branch: "Ahmedabad Branch",
+    ifsc: "BANK0009012",
+    openDate: "10-Jul-2021"
   },
   "ACC-1004": {
     accountNumber: "ACC-1004",
-    name: "Emily Johnson",
-    email: "emily.johnson@email.com",
-    phone: "+1 (555) 456-7890",
-    address: "321 Elm Court, Houston, TX 77001",
-    balance: "$91,200.75"
+    name: "Sneha Reddy",
+    email: "sneha.reddy@email.com",
+    phone: "7654321098",
+    address: "321 Banjara Hills, Hyderabad, Telangana 500034",
+    balance: "$91,200.75",
+    accountType: "Savings",
+    branch: "Hyderabad Branch",
+    ifsc: "BANK0003456",
+    openDate: "05-Dec-2018"
   },
   "ACC-1005": {
     accountNumber: "ACC-1005",
-    name: "David Thompson",
-    email: "david.thompson@email.com",
-    phone: "+1 (555) 567-8901",
-    address: "654 Birch Lane, Phoenix, AZ 85001",
-    balance: "$56,780.00"
+    name: "Amit Desai",
+    email: "amit.desai@email.com",
+    phone: "6543210987",
+    address: "654 Marine Drive, Mumbai, Maharashtra 400020",
+    balance: "$56,780.00",
+    accountType: "Current",
+    branch: "Mumbai Central Branch",
+    ifsc: "BANK0007890",
+    openDate: "18-Sep-2020"
+  },
+  "ACC-1006": {
+    accountNumber: "ACC-1006",
+    name: "Anjali Nair",
+    email: "anjali.nair@email.com",
+    phone: "5432109876",
+    address: "987 MG Road, Kochi, Kerala 682016",
+    balance: "$24,560.00",
+    accountType: "Savings",
+    branch: "Kochi Branch",
+    ifsc: "BANK0002345",
+    openDate: "30-Nov-2021"
+  },
+  "ACC-1007": {
+    accountNumber: "ACC-1007",
+    name: "Vikram Singh",
+    email: "vikram.singh@email.com",
+    phone: "4321098765",
+    address: "234 Park Street, Kolkata, West Bengal 700016",
+    balance: "$65,340.50",
+    accountType: "Savings",
+    branch: "Kolkata Branch",
+    ifsc: "BANK0006789",
+    openDate: "12-Feb-2019"
+  },
+  "ACC-1008": {
+    accountNumber: "ACC-1008",
+    name: "Meera Iyer",
+    email: "meera.iyer@email.com",
+    phone: "3210987654",
+    address: "567 Anna Salai, Chennai, Tamil Nadu 600002",
+    balance: "$89,120.00",
+    accountType: "Current",
+    branch: "Chennai Branch",
+    ifsc: "BANK0004567",
+    openDate: "25-Aug-2020"
   }
 };
 
