@@ -3,7 +3,10 @@ import AlgorithmHeader from "@/components/AlgorithmHeader";
 import ComplexityAnalysis from "@/components/ComplexityAnalysis";
 import HashVisualization from "@/components/HashVisualization";
 import AccountLookup from "@/components/AccountLookup";
+import CustomerDatabase from "@/components/CustomerDatabase";
+import AddCustomerForm from "@/components/AddCustomerForm";
 import { toast } from "sonner";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 // Sample customer database with comprehensive details
 const customerDatabase: { [key: string]: any } = {
@@ -109,6 +112,7 @@ const Index = () => {
   const [currentAccountNumber, setCurrentAccountNumber] = useState("");
   const [hashValue, setHashValue] = useState(-1);
   const [customerData, setCustomerData] = useState<any>(null);
+  const [database, setDatabase] = useState(customerDatabase);
 
   const handleSearch = (accountNumber: string, hash: number) => {
     setCurrentAccountNumber(accountNumber);
@@ -116,7 +120,7 @@ const Index = () => {
     
     // Simulate hash table lookup
     setTimeout(() => {
-      const customer = customerDatabase[accountNumber];
+      const customer = database[accountNumber];
       if (customer) {
         setCustomerData(customer);
         toast.success("Customer account found!", {
@@ -131,39 +135,70 @@ const Index = () => {
     }, 800);
   };
 
+  const handleAddCustomer = (newCustomer: any) => {
+    setDatabase(prev => ({
+      ...prev,
+      [newCustomer.accountNumber]: newCustomer
+    }));
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-12">
         <AlgorithmHeader />
         
-        <div className="max-w-6xl mx-auto space-y-8">
-          <HashVisualization 
-            accountNumber={currentAccountNumber}
-            hashValue={hashValue}
-            isActive={!!currentAccountNumber}
-          />
-
-          <AccountLookup 
-            onSearch={handleSearch}
-            customerData={customerData}
-          />
-
-          <div className="pt-8">
-            <h2 className="text-3xl font-bold mb-6 text-center">Algorithm Complexity</h2>
+        <div className="max-w-7xl mx-auto space-y-8">
+          {/* Algorithm Complexity - Show First */}
+          <div>
+            <h2 className="text-3xl font-bold mb-6 text-center">Algorithm Complexity Analysis</h2>
             <ComplexityAnalysis />
           </div>
 
-          <div className="bg-card rounded-lg p-6 border border-border">
-            <h3 className="text-xl font-bold mb-4">How It Works</h3>
+          {/* Customer Database View */}
+          <CustomerDatabase customers={database} />
+
+          {/* Main Interaction Tabs */}
+          <Tabs defaultValue="search" className="w-full">
+            <TabsList className="grid w-full grid-cols-2">
+              <TabsTrigger value="search" className="text-lg">Search Account</TabsTrigger>
+              <TabsTrigger value="add" className="text-lg">Add New Customer</TabsTrigger>
+            </TabsList>
+            
+            <TabsContent value="search" className="space-y-6">
+              <HashVisualization 
+                accountNumber={currentAccountNumber}
+                hashValue={hashValue}
+                isActive={!!currentAccountNumber}
+              />
+
+              <AccountLookup 
+                onSearch={handleSearch}
+                customerData={customerData}
+              />
+            </TabsContent>
+            
+            <TabsContent value="add">
+              <AddCustomerForm 
+                onAddCustomer={handleAddCustomer}
+                existingAccountNumbers={Object.keys(database)}
+              />
+            </TabsContent>
+          </Tabs>
+
+          {/* How it works */}
+          <div className="bg-card rounded-lg p-6 border-2 border-primary/20">
+            <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
+              <span className="text-primary">💡</span> Transform and Conquer Paradigm
+            </h3>
             <div className="space-y-3 text-muted-foreground">
               <p>
-                <span className="font-semibold text-foreground">Transform:</span> The account number is transformed into an array index using a hash function (modulo operation).
+                <span className="font-semibold text-foreground">Transform:</span> The account number is transformed into an array index using a hash function (modulo operation). This converts the search problem into a simple array access problem.
               </p>
               <p>
-                <span className="font-semibold text-foreground">Conquer:</span> Once transformed, we can directly access the customer data at that index in O(1) time.
+                <span className="font-semibold text-foreground">Conquer:</span> Once transformed, we can directly access the customer data at that index in O(1) constant time, regardless of how many customers exist in the database.
               </p>
               <p>
-                This demonstrates the <span className="font-semibold text-primary">Transform and Conquer</span> paradigm where we transform the problem into a simpler form (hash index) before conquering it (direct access).
+                This demonstrates the <span className="font-semibold text-primary">Transform and Conquer</span> paradigm where we transform the problem into a simpler form (hash index) before conquering it (direct access). The hash function h(k) = k mod 100 ensures all account numbers map to indices between 0-99.
               </p>
             </div>
           </div>
