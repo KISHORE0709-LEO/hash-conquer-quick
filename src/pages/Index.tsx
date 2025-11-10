@@ -5,6 +5,7 @@ import HashVisualization from "@/components/HashVisualization";
 import AccountLookup from "@/components/AccountLookup";
 import CustomerDatabase from "@/components/CustomerDatabase";
 import AddCustomerForm from "@/components/AddCustomerForm";
+import CCodeImplementation from "@/components/CCodeImplementation";
 import { toast } from "sonner";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -156,6 +157,9 @@ const Index = () => {
 
           {/* Customer Database View */}
           <CustomerDatabase customers={database} />
+
+          {/* C Code Implementation */}
+          <CCodeImplementation />
 
           {/* Main Interaction Tabs */}
           <Tabs defaultValue="search" className="w-full">
