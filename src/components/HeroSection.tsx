@@ -74,7 +74,8 @@ const HeroSection = () => {
       {/* Animated canvas background */}
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 w-full h-full bg-gradient-to-br from-secondary via-muted to-primary/30"
+        className="absolute inset-0 w-full h-full"
+        style={{ background: "linear-gradient(135deg, hsl(220 25% 8%) 0%, hsl(220 25% 15%) 50%, hsl(217 91% 20%) 100%)" }}
       />
 
       {/* Removed gradient overlay */}
@@ -89,11 +90,9 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 py-16">
-        <div className="inline-flex items-center gap-2 bg-primary/20 backdrop-blur-sm px-6 py-3 rounded-full mb-6 border border-primary/30">
-          <Badge variant="default" className="text-sm font-semibold bg-primary text-primary-foreground">
-            Transform and Conquer
-          </Badge>
-        </div>
+        <Badge variant="default" className="text-sm font-semibold bg-primary text-primary-foreground px-6 py-2 mb-6">
+          Transform and Conquer
+        </Badge>
 
         <h1 className="text-6xl md:text-7xl font-bold mb-6 tracking-tight">
           <span className="bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent">
