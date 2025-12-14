@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ComplexityAnalysis from "@/components/ComplexityAnalysis";
 import HashVisualization from "@/components/HashVisualization";
@@ -145,49 +146,56 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 py-8">
+      <Navbar />
+      <div className="container mx-auto px-4 py-8 pt-20">
         <HeroSection />
         
         <div className="max-w-7xl mx-auto space-y-8">
           {/* Algorithm Complexity - Show First */}
-          <div>
+          <div id="complexity">
             <h2 className="text-3xl font-bold mb-6 text-center">Algorithm Complexity Analysis</h2>
             <ComplexityAnalysis />
           </div>
 
           {/* Customer Database View */}
-          <CustomerDatabase customers={database} />
+          <div id="database">
+            <CustomerDatabase customers={database} />
+          </div>
 
           {/* C Code Implementation */}
-          <CCodeImplementation />
+          <div id="c-code">
+            <CCodeImplementation />
+          </div>
 
-          {/* Main Interaction Tabs */}
-          <Tabs defaultValue="search" className="w-full">
-            <TabsList className="grid w-full grid-cols-2">
-              <TabsTrigger value="search" className="text-lg">Search Account</TabsTrigger>
-              <TabsTrigger value="add" className="text-lg">Add New Customer</TabsTrigger>
-            </TabsList>
-            
-            <TabsContent value="search" className="space-y-6">
-              <HashVisualization 
-                accountNumber={currentAccountNumber}
-                hashValue={hashValue}
-                isActive={!!currentAccountNumber}
-              />
+          <div id="search">
+            {/* Main Interaction Tabs */}
+            <Tabs defaultValue="search" className="w-full">
+              <TabsList className="grid w-full grid-cols-2">
+                <TabsTrigger value="search" className="text-lg">Search Account</TabsTrigger>
+                <TabsTrigger value="add" className="text-lg">Add New Customer</TabsTrigger>
+              </TabsList>
+              
+              <TabsContent value="search" className="space-y-6">
+                <HashVisualization 
+                  accountNumber={currentAccountNumber}
+                  hashValue={hashValue}
+                  isActive={!!currentAccountNumber}
+                />
 
-              <AccountLookup 
-                onSearch={handleSearch}
-                customerData={customerData}
-              />
-            </TabsContent>
-            
-            <TabsContent value="add">
-              <AddCustomerForm 
-                onAddCustomer={handleAddCustomer}
-                existingAccountNumbers={Object.keys(database)}
-              />
-            </TabsContent>
-          </Tabs>
+                <AccountLookup 
+                  onSearch={handleSearch}
+                  customerData={customerData}
+                />
+              </TabsContent>
+              
+              <TabsContent value="add">
+                <AddCustomerForm 
+                  onAddCustomer={handleAddCustomer}
+                  existingAccountNumbers={Object.keys(database)}
+                />
+              </TabsContent>
+            </Tabs>
+          </div>
 
           {/* How it works */}
           <div className="bg-card rounded-lg p-6 border-2 border-primary/20">
