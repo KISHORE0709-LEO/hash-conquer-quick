@@ -74,12 +74,10 @@ const HeroSection = () => {
       {/* Animated canvas background */}
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 w-full h-full"
-        style={{ background: "linear-gradient(135deg, hsl(220 25% 8%) 0%, hsl(220 25% 15%) 50%, hsl(217 91% 20%) 100%)" }}
+        className="absolute inset-0 w-full h-full bg-gradient-to-br from-secondary via-muted to-primary/30"
       />
 
-      {/* Overlay gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
+      {/* Removed gradient overlay */}
 
       {/* Floating elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -97,39 +95,39 @@ const HeroSection = () => {
           </Badge>
         </div>
 
-        <h1 className="text-6xl md:text-7xl font-bold mb-6 text-white tracking-tight">
-          <span className="bg-gradient-to-r from-white via-primary-foreground to-accent bg-clip-text text-transparent">
+        <h1 className="text-6xl md:text-7xl font-bold mb-6 tracking-tight">
+          <span className="bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent">
             Hashing Algorithm
           </span>
         </h1>
 
-        <p className="text-xl text-white/80 max-w-3xl mx-auto mb-10 leading-relaxed">
+        <p className="text-xl text-foreground/80 max-w-3xl mx-auto mb-10 leading-relaxed">
           Retrieve customer account details instantly using efficient hash table lookups.
           Experience O(1) constant time complexity in action.
         </p>
 
         {/* Feature pills */}
         <div className="flex flex-wrap justify-center gap-4 mb-8">
-          <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+          <div className="flex items-center gap-2 bg-foreground/10 backdrop-blur-sm px-4 py-2 rounded-full border border-foreground/20">
             <Hash className="w-5 h-5 text-accent" />
-            <span className="text-white/90 text-sm font-medium">Hash Function</span>
+            <span className="text-foreground/90 text-sm font-medium">Hash Function</span>
           </div>
-          <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+          <div className="flex items-center gap-2 bg-foreground/10 backdrop-blur-sm px-4 py-2 rounded-full border border-foreground/20">
             <Zap className="w-5 h-5 text-accent" />
-            <span className="text-white/90 text-sm font-medium">O(1) Lookup</span>
+            <span className="text-foreground/90 text-sm font-medium">O(1) Lookup</span>
           </div>
-          <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+          <div className="flex items-center gap-2 bg-foreground/10 backdrop-blur-sm px-4 py-2 rounded-full border border-foreground/20">
             <Database className="w-5 h-5 text-accent" />
-            <span className="text-white/90 text-sm font-medium">Hash Table</span>
+            <span className="text-foreground/90 text-sm font-medium">Hash Table</span>
           </div>
-          <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+          <div className="flex items-center gap-2 bg-foreground/10 backdrop-blur-sm px-4 py-2 rounded-full border border-foreground/20">
             <Search className="w-5 h-5 text-accent" />
-            <span className="text-white/90 text-sm font-medium">Instant Search</span>
+            <span className="text-foreground/90 text-sm font-medium">Instant Search</span>
           </div>
         </div>
 
         {/* Animated hash visualization */}
-        <div className="flex justify-center items-center gap-4 text-white/60 font-mono text-lg">
+        <div className="flex justify-center items-center gap-4 text-foreground/60 font-mono text-lg">
           <span className="animate-pulse">ACC-1001</span>
           <span className="text-accent animate-bounce">→</span>
           <span className="text-accent font-bold">h(k) = k mod 100</span>
