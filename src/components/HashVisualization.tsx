@@ -33,7 +33,7 @@ const HashVisualization = ({ accountNumber, hashValue, isActive }: HashVisualiza
         {/* Step-by-step visualization - Vertical layout */}
         <div className="flex flex-col items-center space-y-4">
           {/* Step 1: Input */}
-          <div className={`w-full max-w-lg p-6 rounded-xl border-2 transition-all duration-500 backdrop-blur-sm ${isActive ? 'border-primary bg-primary/10 shadow-lg shadow-primary/20' : 'border-muted bg-card/50'}`}>
+          <div className={`w-full max-w-2xl p-6 rounded-xl border-2 transition-all duration-500 backdrop-blur-sm ${isActive ? 'border-primary bg-primary/10 shadow-lg shadow-primary/20' : 'border-muted bg-card/50'}`}>
             <Badge className="mb-3 bg-primary text-primary-foreground">Step 1: Input</Badge>
             <div className="flex items-center justify-between">
               <div>
@@ -54,7 +54,7 @@ const HashVisualization = ({ accountNumber, hashValue, isActive }: HashVisualiza
           </div>
 
           {/* Step 2: Extract numeric part */}
-          <div className={`w-full max-w-lg p-6 rounded-xl border-2 transition-all duration-500 backdrop-blur-sm ${isActive ? 'border-accent bg-accent/10 shadow-lg shadow-accent/20' : 'border-muted bg-card/50'}`}>
+          <div className={`w-full max-w-2xl p-6 rounded-xl border-2 transition-all duration-500 backdrop-blur-sm ${isActive ? 'border-accent bg-accent/10 shadow-lg shadow-accent/20' : 'border-muted bg-card/50'}`}>
             <Badge className="mb-3 bg-accent text-accent-foreground">Step 2: Extract Numeric Value</Badge>
             <div className="flex items-center justify-between gap-4">
               <div>
@@ -75,7 +75,7 @@ const HashVisualization = ({ accountNumber, hashValue, isActive }: HashVisualiza
           </div>
 
           {/* Step 3: Hash function */}
-          <div className={`w-full max-w-lg p-6 rounded-xl border-2 transition-all duration-500 backdrop-blur-sm ${isActive ? 'border-primary bg-primary/10 shadow-lg shadow-primary/20' : 'border-muted bg-card/50'}`}>
+          <div className={`w-full max-w-2xl p-6 rounded-xl border-2 transition-all duration-500 backdrop-blur-sm ${isActive ? 'border-primary bg-primary/10 shadow-lg shadow-primary/20' : 'border-muted bg-card/50'}`}>
             <Badge className="mb-3 bg-primary text-primary-foreground">Step 3: Apply Hash Function</Badge>
             <div className="flex items-center justify-between gap-4">
               <div className="p-4 bg-code-bg rounded-xl flex items-center gap-3">
@@ -104,7 +104,7 @@ const HashVisualization = ({ accountNumber, hashValue, isActive }: HashVisualiza
           </div>
 
           {/* Step 4: Result */}
-          <div className={`w-full max-w-lg p-6 rounded-xl border-2 transition-all duration-500 backdrop-blur-sm ${isActive ? 'border-accent bg-gradient-to-r from-accent/20 to-primary/20 shadow-xl' : 'border-muted bg-card/50'}`}>
+          <div className={`w-full max-w-2xl p-6 rounded-xl border-2 transition-all duration-500 backdrop-blur-sm ${isActive ? 'border-accent bg-gradient-to-r from-accent/20 to-primary/20 shadow-xl' : 'border-muted bg-card/50'}`}>
             <Badge className="mb-3 bg-accent text-accent-foreground">Step 4: Hash Table Index</Badge>
             <div className="flex items-center justify-between">
               <div>

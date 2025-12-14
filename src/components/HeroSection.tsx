@@ -70,7 +70,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <div className="relative min-h-[60vh] flex items-center justify-center overflow-hidden rounded-2xl mb-12">
+    <div className="relative min-h-[90vh] flex items-center justify-center overflow-hidden rounded-2xl mb-12">
       {/* Animated canvas background */}
       <canvas
         ref={canvasRef}
