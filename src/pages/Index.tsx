@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AlgorithmHeader from "@/components/AlgorithmHeader";
+import HeroSection from "@/components/HeroSection";
 import ComplexityAnalysis from "@/components/ComplexityAnalysis";
 import HashVisualization from "@/components/HashVisualization";
 import AccountLookup from "@/components/AccountLookup";
@@ -145,8 +145,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 py-12">
-        <AlgorithmHeader />
+      <div className="container mx-auto px-4 py-8">
+        <HeroSection />
         
         <div className="max-w-7xl mx-auto space-y-8">
           {/* Algorithm Complexity - Show First */}
